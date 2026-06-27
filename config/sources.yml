@@ -1,0 +1,394 @@
+settings:
+  site_title: Cosmology Brief
+  site_description: Daily cosmology news and India-relevant cosmology academic opportunities.
+  baseurl: /cosmology
+  news_limit: 40
+  jobs_limit: 70
+  final_news_points: 5
+  final_jobs_points: 5
+  max_groups_per_section: 10
+  min_group_score: 2
+  require_ist_today: false
+  max_age_hours_news: 168
+  max_age_hours_jobs: 1440
+  allow_unknown_dates_news: true
+  allow_unknown_dates_jobs: true
+  freshness_first: true
+  show_fetch_warnings: false
+  audience_region: India
+  jobs_policy: 'Prefer positions realistically useful to an India-resident cosmology researcher:
+    Indian postdoctoral/faculty/scientist opportunities first; international postdocs and fellowships
+    that commonly accept overseas applicants next; citizenship-limited programmes should be avoided
+    or treated as low-priority awareness links only.'
+  news_keywords: cosmology,cosmic,universe,dark energy,dark matter,cosmic microwave background,CMB,
+    Hubble tension,S8 tension,early universe,inflation,large-scale structure,galaxy survey, Euclid,DESI,LSST,Planck,Roman,Webb,gravitational
+    waves,black holes,primordial, nucleosynthesis,redshift,supernova,lensing,cosmological constant,modified
+    gravity, baryon acoustic oscillations,BAO
+  job_keywords: cosmology,astrophysics,astronomy,astronomer,particle astrophysics,astroparticle,
+    gravitation,gravity,relativity,dark matter,dark energy,CMB,large-scale structure, galaxy formation,postdoctoral,postdoc,research
+    associate,research fellow,fellowship, research scientist,scientist,faculty,assistant professor,associate
+    professor, tenure track,visiting fellow,academic position
+  india_priority_keywords: India,Indian citizen,Indian citizens,India-resident,Indian researcher,Indian
+    origin, IUCAA,TIFR,PRL,RRI,IIA,ARIES,NCRA,HRI,ICTS,SINP,ANRF,SERB,ASI,INSA
+  exclude_keywords: horoscope,astrology,zodiac,celebrity,recipe,photos,photo gallery,viral video,
+    wallpaper,quiz,advertorial,sponsored,newsletter signup,PhD studentship,graduate school, undergraduate,internship,school
+    teacher
+  fetch_timeout_seconds: 6
+sources:
+  news:
+    research:
+    - name: arXiv astro-ph.CO
+      type: atom
+      weight: 10
+      url: https://export.arxiv.org/api/query?search_query=cat:astro-ph.CO&sortBy=submittedDate&sortOrder=descending&max_results=25
+      note: Primary preprint feed for cosmology papers.
+      home_url: https://arxiv.org/list/astro-ph.CO/recent
+    - name: arXiv gr-qc Cosmology Search
+      type: atom
+      weight: 8
+      url: https://export.arxiv.org/api/query?search_query=cat:gr-qc+AND+all:cosmology&sortBy=submittedDate&sortOrder=descending&max_results=15
+      note: Useful for gravity, modified gravity, and early-universe theory.
+      home_url: https://arxiv.org/list/gr-qc/recent
+    agencies_and_observatories:
+    - name: NASA News Releases
+      type: rss
+      weight: 8
+      url: https://www.nasa.gov/news-release/feed/
+      home_url: https://www.nasa.gov/news/
+    - name: ESA Top News
+      type: rss
+      weight: 8
+      url: https://www.esa.int/rssfeed/TopNews
+      home_url: https://www.esa.int/Newsroom
+    - name: NASA Universe
+      type: portal
+      weight: 7
+      url: https://science.nasa.gov/universe/
+      note: Portal retained; RSS/Atom sources are used for automated fetching.
+    science_news:
+    - name: ScienceDaily Space and Time
+      type: rss
+      weight: 7
+      url: https://www.sciencedaily.com/rss/space_time.xml
+      home_url: https://www.sciencedaily.com/news/space_time/
+    - name: Phys.org Astronomy and Space
+      type: rss
+      weight: 7
+      url: https://phys.org/rss-feed/space-news/astronomy/
+      home_url: https://phys.org/space-news/astronomy/
+    - name: MIT Astrophysics
+      type: rss
+      weight: 6
+      url: https://news.mit.edu/rss/topic/astrophysics
+      home_url: https://news.mit.edu/topic/astrophysics
+    - name: Universe Today
+      type: rss
+      weight: 5
+      url: https://www.universetoday.com/feed/
+      home_url: https://www.universetoday.com/
+    - name: Sky & Telescope News
+      type: portal
+      weight: 3
+      url: https://skyandtelescope.org/astronomy-news/
+      note: Portal only; RSS blocks automated fetches on some machines.
+  jobs:
+    india_priority:
+    - name: ASI Job Register India
+      type: portal
+      weight: 13
+      region: India
+      eligibility: India-relevant astronomy and astrophysics opportunities.
+      url: https://www.astron-soc.in/list-of-jobs
+      note: Best single India-specific astronomy/astrophysics job register.
+    - name: IUCAA Opportunities
+      type: portal
+      weight: 12
+      region: India
+      eligibility: Indian institute; postdoc, faculty, scientist, JRF/project opportunities.
+      url: https://www.iucaa.in/en/opportunities
+      note: Portal retained for India-relevant manual checking; not fetched automatically to avoid
+        403/SSL/JavaScript failures.
+    - name: IUCAA Faculty Openings
+      type: portal
+      weight: 11
+      region: India
+      eligibility: Faculty applications are typically for Indian citizens unless stated otherwise.
+      url: https://www.iucaa.in/en/opportunities/faculty-openings
+      note: Portal retained for India-relevant manual checking; not fetched automatically to avoid
+        403/SSL/JavaScript failures.
+    - name: TIFR Astronomy and Astrophysics Careers
+      type: portal
+      weight: 11
+      region: India
+      eligibility: Regular academic and visiting fellow/postdoctoral positions in India.
+      url: https://www.tifr.res.in/daa/career.html
+      note: Portal retained for India-relevant manual checking; not fetched automatically to avoid
+        403/SSL/JavaScript failures.
+    - name: PRL Job Vacancies and Fellowships
+      type: portal
+      weight: 11
+      region: India
+      eligibility: Indian institute; includes PRL-funded and external postdoctoral fellowships
+        plus research/faculty-style openings when advertised.
+      url: https://www.prl.res.in/prl-eng/job_vacancies
+      note: Portal retained for India-relevant manual checking; not fetched automatically to avoid
+        403/SSL/JavaScript failures.
+    - name: RRI Regular and Other Openings
+      type: portal
+      weight: 9
+      region: India
+      eligibility: Indian institute; use for current research, scientist, technical and faculty
+        openings.
+      url: https://www.rri.res.in/careers/regular-other-openings
+      note: Portal retained for India-relevant manual checking; not fetched automatically to avoid
+        403/SSL/JavaScript failures.
+    - name: Indian Institute of Astrophysics Job Portal
+      type: portal
+      weight: 9
+      region: India
+      eligibility: Indian institute; official IIA online job application portal.
+      url: https://www.iiap.res.in/iia_jobs/?q=job_postings
+      note: Portal retained for India-relevant manual checking; not fetched automatically to avoid
+        403/SSL/JavaScript failures.
+    - name: ARIES Opportunities
+      type: portal
+      weight: 8
+      region: India
+      url: https://www.aries.res.in/opportunities
+      note: Portal/static programme page retained for manual checking; not fetched during daily
+        generation.
+    - name: NCRA-TIFR Opportunities
+      type: portal
+      weight: 8
+      region: India
+      url: https://www.ncra.tifr.res.in/ncra/opportunities
+      note: Portal/static programme page retained for manual checking; not fetched during daily
+        generation.
+    - name: HRI Physics Postdoctoral Fellowships
+      type: portal
+      weight: 9
+      region: India
+      eligibility: Indian institute; postdoctoral fellowship page for physics. SSL can fail on
+        some local Python installations, so fetcher uses certifi and safe fallback.
+      url: https://www.hri.res.in/academics/physics/pdf-fellowships/
+      note: Portal/static programme page retained for manual checking; not fetched during daily
+        generation.
+    - name: HRI Advertisements
+      type: portal
+      weight: 7
+      region: India
+      eligibility: Indian institute; official advertisement page. SSL can fail on some local Python
+        installations, so fetcher uses certifi and safe fallback.
+      url: https://www.hri.res.in/advertisements/
+      note: Portal/static programme page retained for manual checking; not fetched during daily
+        generation.
+    - name: ICTS Opportunities
+      type: portal
+      weight: 8
+      region: India
+      url: https://www.icts.res.in/opportunities
+      note: Portal/static programme page retained for manual checking; not fetched during daily
+        generation.
+    - name: SINP Positions
+      type: portal
+      weight: 7
+      region: India
+      url: https://www.saha.ac.in/web/positions
+      note: Portal/static programme page retained for manual checking; not fetched during daily
+        generation.
+    india_fellowships:
+    - name: ANRF National Post Doctoral Fellowship
+      type: portal
+      weight: 12
+      region: India
+      eligibility: For Indian citizens with PhD or thesis submitted, subject to current ANRF rules.
+      url: https://anrfonline.in/ANRF/npdf
+      note: Portal/static programme page retained for manual checking; not fetched during daily
+        generation.
+    - name: ANRF Ramanujan Fellowship
+      type: portal
+      weight: 10
+      region: India
+      eligibility: For brilliant Indian/Indian-origin scientists abroad; useful for return-to-India
+        track.
+      url: https://anrfonline.in/ANRF/Ramanujan_fellowship
+      note: Portal/static programme page retained for manual checking; not fetched during daily
+        generation.
+    - name: SERB / ANRF Awards and Fellowships
+      type: portal
+      weight: 9
+      region: India
+      url: https://serb.gov.in/page/english/awards_fellowship
+      note: Portal/static programme page retained for manual checking; not fetched during daily
+        generation.
+    international_open:
+    - name: INSPIRE HEP Jobs API
+      type: json_jobs
+      weight: 10
+      region: Global
+      eligibility: Global academic HEP/astrophysics/cosmology job database; many postdocs accept
+        international applicants.
+      url: https://inspirehep.net/api/jobs?q=cosmology%20OR%20astrophysics%20OR%20%22dark%20matter%22%20OR%20%22dark%20energy%22&sort=mostrecent&size=25
+      home_url: https://inspirehep.net/jobs
+    - name: INSPIRE HEP Jobs
+      type: portal
+      weight: 9
+      region: Global
+      url: https://inspirehep.net/jobs
+      note: Portal/static programme page retained for manual checking; not fetched during daily
+        generation.
+    - name: Academic Jobs Online Cosmology
+      type: portal
+      weight: 10
+      region: Global
+      eligibility: Commonly used for international postdoc/faculty applications.
+      url: https://academicjobsonline.org/ajo/physics/Cosmology
+      note: Portal retained for India-relevant manual checking; not fetched automatically to avoid
+        403/SSL/JavaScript failures.
+    - name: Academic Jobs Online Physics
+      type: portal
+      weight: 8
+      region: Global
+      url: https://academicjobsonline.org/ajo/physics
+      note: Portal retained for India-relevant manual checking; not fetched automatically to avoid
+        403/SSL/JavaScript failures.
+    - name: AAS Job Register
+      type: portal
+      weight: 5
+      region: Global
+      eligibility: Useful awareness portal, but many listings are US-focused and the site can
+        block automated fetching; verify eligibility manually.
+      url: https://jobregister.aas.org/
+      note: Portal/static programme page retained for manual checking; not fetched during daily
+        generation.
+    - name: EURAXESS Research Jobs
+      type: portal
+      weight: 7
+      region: Europe
+      eligibility: Many EU research jobs are open internationally, but work visa rules must be
+        checked.
+      url: https://euraxess.ec.europa.eu/jobs
+      note: Portal retained for India-relevant manual checking; not fetched automatically to avoid
+        403/SSL/JavaScript failures.
+    - name: Nature Careers Physics
+      type: portal
+      weight: 6
+      region: Global
+      url: https://www.nature.com/naturecareers/jobs/physics
+      note: Portal/static programme page retained for manual checking; not fetched during daily
+        generation.
+    - name: FindAPostDoc Cosmology
+      type: portal
+      weight: 4
+      region: Global
+      eligibility: Useful UK/EU postdoc portal but can block automated fetching; verify visa and
+        overseas eligibility manually.
+      url: https://www.findapostdoc.com/search/jobs.aspx?keywords=cosmology
+      note: Portal/static programme page retained for manual checking; not fetched during daily
+        generation.
+    - name: Academic Positions Physics
+      type: portal
+      weight: 6
+      region: Global
+      url: https://academicpositions.com/find-jobs?fields%5B0%5D=physics
+      note: Portal retained for India-relevant manual checking; not fetched automatically to avoid
+        403/SSL/JavaScript failures.
+    - name: Physics World Astronomy Cosmology Postdocs
+      type: portal
+      weight: 6
+      region: Global
+      url: https://www.physicsworldjobs.com/jobs/astronomy-cosmology-and-space-science/academic-postdoc/
+      note: Portal retained for India-relevant manual checking; not fetched automatically to avoid
+        403/SSL/JavaScript failures.
+    international_fellowships_open_to_indian_researchers:
+    - name: Marie Curie Postdoctoral Fellowships
+      type: portal
+      weight: 10
+      region: Europe
+      eligibility: Open mobility fellowship; Indian researchers may apply with eligible European
+        host and mobility rule.
+      url: https://marie-sklodowska-curie-actions.ec.europa.eu/actions/postdoctoral-fellowships
+      note: Portal/static programme page retained for manual checking; not fetched during daily
+        generation.
+    - name: Humboldt Research Fellowship
+      type: portal
+      weight: 10
+      region: Germany
+      eligibility: International researchers can apply with German host.
+      url: https://www.humboldt-foundation.de/en/apply/sponsorship-programmes/humboldt-research-fellowship
+      note: Portal/static programme page retained for manual checking; not fetched during daily
+        generation.
+    - name: JSPS Postdoctoral Fellowship
+      type: portal
+      weight: 8
+      region: Japan
+      eligibility: International researchers may apply through eligible JSPS routes/hosts.
+      url: https://www.jsps.go.jp/english/e-fellow/
+      note: Portal/static programme page retained for manual checking; not fetched during daily
+        generation.
+    - name: Newton International Fellowship
+      type: portal
+      weight: 8
+      region: UK
+      eligibility: For non-UK early-career researchers to work in the UK, subject to scheme rules.
+      url: https://royalsociety.org/grants/newton-international-fellowships/
+      note: Portal/static programme page retained for manual checking; not fetched during daily
+        generation.
+    institute_careers_global:
+    - name: Perimeter Institute Careers
+      type: portal
+      weight: 8
+      region: Canada
+      url: https://perimeterinstitute.ca/careers
+      note: Portal/static programme page retained for manual checking; not fetched during daily
+        generation.
+    - name: Kavli IPMU Job Opportunities
+      type: portal
+      weight: 8
+      region: Japan
+      url: https://www.ipmu.jp/en/job-opportunities
+      note: Portal/static programme page retained for manual checking; not fetched during daily
+        generation.
+    - name: KICP Chicago Positions
+      type: portal
+      weight: 7
+      region: USA
+      url: https://kicp.uchicago.edu/positions/
+      note: Portal/static programme page retained for manual checking; not fetched during daily
+        generation.
+    - name: ICTP Opportunities
+      type: portal
+      weight: 8
+      region: International
+      eligibility: Especially relevant for researchers from developing countries, including India.
+      url: https://www.ictp.it/opportunities
+      note: Portal/static programme page retained for manual checking; not fetched during daily
+        generation.
+    - name: Max Planck Job Board
+      type: portal
+      weight: 7
+      region: Germany
+      url: https://www.mpg.de/jobboard
+      note: Portal/static programme page retained for manual checking; not fetched during daily
+        generation.
+    - name: CERN Academic Jobs
+      type: portal
+      weight: 7
+      region: Europe
+      url: https://careers.cern/alljobs
+      note: Portal/static programme page retained for manual checking; not fetched during daily
+        generation.
+    - name: DESY Careers
+      type: portal
+      weight: 6
+      region: Germany
+      url: https://www.desy.de/career
+      note: Portal/static programme page retained for manual checking; not fetched during daily
+        generation.
+    - name: Flatiron Institute Careers
+      type: portal
+      weight: 6
+      region: USA
+      url: https://www.simonsfoundation.org/careers/
+      note: Portal/static programme page retained for manual checking; not fetched during daily
+        generation.

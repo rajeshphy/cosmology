@@ -1,0 +1,56 @@
+sources:
+  research:
+  - name: arXiv astro-ph.CO
+    type: atom
+    weight: 10
+    url: https://export.arxiv.org/api/query?search_query=cat:astro-ph.CO&sortBy=submittedDate&sortOrder=descending&max_results=25
+    note: Primary preprint feed for cosmology papers.
+    home_url: https://arxiv.org/list/astro-ph.CO/recent
+  - name: arXiv gr-qc Cosmology Search
+    type: atom
+    weight: 8
+    url: https://export.arxiv.org/api/query?search_query=cat:gr-qc+AND+all:cosmology&sortBy=submittedDate&sortOrder=descending&max_results=15
+    note: Useful for gravity, modified gravity, and early-universe theory.
+    home_url: https://arxiv.org/list/gr-qc/recent
+  agencies_and_observatories:
+  - name: NASA News Releases
+    type: rss
+    weight: 8
+    url: https://www.nasa.gov/news-release/feed/
+    home_url: https://www.nasa.gov/news/
+  - name: ESA Top News
+    type: rss
+    weight: 8
+    url: https://www.esa.int/rssfeed/TopNews
+    home_url: https://www.esa.int/Newsroom
+  - name: NASA Universe
+    type: portal
+    weight: 7
+    url: https://science.nasa.gov/universe/
+    note: Portal retained; RSS/Atom sources are used for automated fetching.
+  science_news:
+  - name: ScienceDaily Space and Time
+    type: rss
+    weight: 7
+    url: https://www.sciencedaily.com/rss/space_time.xml
+    home_url: https://www.sciencedaily.com/news/space_time/
+  - name: Phys.org Astronomy and Space
+    type: rss
+    weight: 7
+    url: https://phys.org/rss-feed/space-news/astronomy/
+    home_url: https://phys.org/space-news/astronomy/
+  - name: MIT Astrophysics
+    type: rss
+    weight: 6
+    url: https://news.mit.edu/rss/topic/astrophysics
+    home_url: https://news.mit.edu/topic/astrophysics
+  - name: Universe Today
+    type: rss
+    weight: 5
+    url: https://www.universetoday.com/feed/
+    home_url: https://www.universetoday.com/
+  - name: Sky & Telescope News
+    type: portal
+    weight: 3
+    url: https://skyandtelescope.org/astronomy-news/
+    note: Portal only; RSS blocks automated fetches on some machines.

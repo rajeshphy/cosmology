@@ -1,0 +1,74 @@
+name: Daily Cosmology Brief
+
+on:
+  schedule:
+    - cron: "30 0 * * *"   # 06:00 IST
+    - cron: "30 8 * * *"   # 14:00 IST
+    - cron: "30 14 * * *"  # 20:00 IST
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Generate digest
+        env:
+          COSMOLOGY_API_KEY: ${{ secrets.COSMOLOGY_API_KEY }}
+        run: python3 src/main.py
+
+      - name: Commit generated post
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/_posts data || true
+          if ! git diff --cached --quiet; then
+            git commit -m "Add cosmology brief for $(date -u +%F)"
+            git push
+          fi
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+          bundler-cache: false
+
+      - name: Install Jekyll dependencies
+        run: |
+          rm -f Gemfile.lock
+          bundle install
+
+      - name: Build Jekyll site
+        run: bundle exec jekyll build --source docs --destination docs/_site
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs/_site
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4

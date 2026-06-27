@@ -1,0 +1,36 @@
+settings:
+  site_title: Cosmology Brief
+  site_description: Daily cosmology news and India-relevant cosmology academic opportunities.
+  baseurl: /cosmology
+  news_limit: 40
+  jobs_limit: 70
+  final_news_points: 5
+  final_jobs_points: 5
+  max_groups_per_section: 10
+  min_group_score: 2
+  require_ist_today: false
+  max_age_hours_news: 168
+  max_age_hours_jobs: 1440
+  allow_unknown_dates_news: true
+  allow_unknown_dates_jobs: true
+  freshness_first: true
+  show_fetch_warnings: false
+  audience_region: India
+  jobs_policy: 'Prefer positions realistically useful to an India-resident cosmology researcher:
+    Indian postdoctoral/faculty/scientist opportunities first; international postdocs and fellowships
+    that commonly accept overseas applicants next; citizenship-limited programmes should be avoided
+    or treated as low-priority awareness links only.'
+  news_keywords: cosmology,cosmic,universe,dark energy,dark matter,cosmic microwave background,CMB,
+    Hubble tension,S8 tension,early universe,inflation,large-scale structure,galaxy survey, Euclid,DESI,LSST,Planck,Roman,Webb,gravitational
+    waves,black holes,primordial, nucleosynthesis,redshift,supernova,lensing,cosmological constant,modified
+    gravity, baryon acoustic oscillations,BAO
+  job_keywords: cosmology,astrophysics,astronomy,astronomer,particle astrophysics,astroparticle,
+    gravitation,gravity,relativity,dark matter,dark energy,CMB,large-scale structure, galaxy formation,postdoctoral,postdoc,research
+    associate,research fellow,fellowship, research scientist,scientist,faculty,assistant professor,associate
+    professor, tenure track,visiting fellow,academic position
+  india_priority_keywords: India,Indian citizen,Indian citizens,India-resident,Indian researcher,Indian
+    origin, IUCAA,TIFR,PRL,RRI,IIA,ARIES,NCRA,HRI,ICTS,SINP,ANRF,SERB,ASI,INSA
+  exclude_keywords: horoscope,astrology,zodiac,celebrity,recipe,photos,photo gallery,viral video,
+    wallpaper,quiz,advertorial,sponsored,newsletter signup,PhD studentship,graduate school, undergraduate,internship,school
+    teacher
+  fetch_timeout_seconds: 6

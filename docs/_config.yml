@@ -1,0 +1,8 @@
+title: Cosmology Brief
+description: Daily cosmology research news and academic jobs/fellowships for India-resident researchers.
+url: ""
+baseurl: "/cosmology"
+timezone: Asia/Kolkata
+future: false
+plugins:
+  - jekyll-feed

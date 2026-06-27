@@ -1,0 +1,10 @@
+.env
+_site/
+docs/_site/
+.sass-cache/
+.jekyll-cache/
+.bundle/
+vendor/
+data/quota.json
+__pycache__/
+*.pyc
